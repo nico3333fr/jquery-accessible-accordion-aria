@@ -51,7 +51,7 @@ $(document).ready(function(){
           					  
                       // init first one focusable
                       if ( $index_header === 1 ) {
-                         $accordion_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" );
+                         $accordion_header.removeAttr( "tabindex" );
                          }
                 
                 });                
