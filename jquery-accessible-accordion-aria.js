@@ -90,6 +90,7 @@ $(document).ready(function(){
                            $this.attr( "aria-expanded", "false" );
                            $this_panel.attr( "aria-hidden", "true" );
                           }
+                setTimeout(function(){ $this.focus(); }, 0);
                 event.preventDefault();
                 
            })
@@ -110,11 +111,13 @@ $(document).ready(function(){
                    });
                    // if we are on first one, activate last
                    if ( $this.is( $first_header ) ) {
-                      $last_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" ).focus();
+                      $last_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" );
+                      setTimeout(function(){ $last_header.focus(); }, 0);
                       }
                       // else activate previous
                       else {
-                            $prev_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" ).focus();
+                            $prev_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" );
+                            setTimeout(function(){ $prev_header.focus(); }, 0);
                            }
                    event.preventDefault();
                }
@@ -126,11 +129,13 @@ $(document).ready(function(){
                        });
                        // if we are on last one, activate first
                        if ( $this.is( $last_header ) ) {
-                           $first_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" ).focus();
+                           $first_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" );
+                           setTimeout(function(){ $first_header.focus(); }, 0);
                           }
                           // else activate next
                           else {
-                                $next_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" ).focus();
+                                $next_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" );
+                                setTimeout(function(){ $next_header.focus(); }, 0);
                                 }
                        event.preventDefault();
                }
@@ -140,7 +145,8 @@ $(document).ready(function(){
                              "tabindex": "-1",
                              "aria-selected": "false"
                        });
-                       $first_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" ).focus();
+                       $first_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" );
+                       setTimeout(function(){ $first_header.focus(); }, 0);
                        event.preventDefault();
                }
                // strike end in the tab => last tab
@@ -149,7 +155,8 @@ $(document).ready(function(){
                              "tabindex": "-1",
                              "aria-selected": "false"
                        });
-                       $last_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" ).focus();
+                       $last_header.attr( "aria-selected", "true" ).removeAttr( "tabindex" );
+                       setTimeout(function(){ $last_header.focus(); }, 0);
                        event.preventDefault();
                }
            })
@@ -164,28 +171,28 @@ $(document).ready(function(){
                    
                // strike up + ctrl => go to header
                if ( event.keyCode == 38 && event.ctrlKey ) {
-                   $this_header.focus();
+                   setTimeout(function(){ $this_header.focus(); }, 0);
                    event.preventDefault();
                }
                // strike pageup + ctrl => go to prev header
                else if ( event.keyCode == 33 && event.ctrlKey ) {
                        if ( $this_header.is( $first_header ) ) {
-                           $last_header.focus();
+                           setTimeout(function(){ $last_header.focus(); }, 0);
                            event.preventDefault();
                        }
                        else {
-                             $prev_header.focus();
+                             setTimeout(function(){ $prev_header.focus(); }, 0);
                              event.preventDefault();
                             }
                }
                // strike pagedown + ctrl => go to next header
                else if ( event.keyCode == 34 && event.ctrlKey ) {
                        if ( $this_header.is( $last_header ) ) {
-                           $first_header.focus();
+                           setTimeout(function(){ $first_header.focus(); }, 0);
                            event.preventDefault();
                        }
                        else {
-                             $next_header.focus();
+                             setTimeout(function(){ $next_header.focus(); }, 0);
                              event.preventDefault();
                             }
                }
