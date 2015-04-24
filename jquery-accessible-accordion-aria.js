@@ -43,11 +43,11 @@ $(document).ready(function(){
                             "aria-hidden": "true"
                       }).addClass( $accordions_prefix_classes + "__panel" );
                       
-          					  // if opened by default
-          					  if ( $that.attr( "data-accordion-opened" ) == "true" ) {
-          					     $accordion_header.attr( "aria-expanded", "true" ).removeAttr( "data-accordion-opened" );
-          					     $accordion_panel.attr( "aria-hidden", "false" );
-          					     }
+                      // if opened by default
+                      if ( $that.attr( "data-accordion-opened" ) == "true" ) {
+                         $accordion_header.attr( "aria-expanded", "true" ).removeAttr( "data-accordion-opened" );
+                         $accordion_panel.attr( "aria-hidden", "false" );
+                         }
           					  
                       // init first one focusable
                       if ( $index_header === 1 ) {
