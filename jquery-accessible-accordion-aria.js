@@ -6,9 +6,9 @@ $(document).ready(function(){
            // init 
            $accordions.each( function( index ) {
                 var $this = $( this );
-				            $options = $this.data(),
+                    $options = $this.data(),
                     $accordions_headers = $this.find( ".js-accordion__header" ),
-				           	$accordions_prefix_classes = $options.accordionPrefixClasses || '',
+                    $accordions_prefix_classes = $options.accordionPrefixClasses || '',
                     $index_accordion = index+1 ;
                     
                 $this.attr({
