@@ -1,5 +1,6 @@
 {
   "name": "jquery-accessible-accordion-aria",
+  "version": "1.0",
   "main": "jquery-accessible-accordion-aria.js",
   "description": "jQuery Accessible Accordion System, using ARIA",
   "authors": [
@@ -14,7 +15,8 @@
   "keywords": [
     "accordion",
     "a11y",
-    "accessibility"
+    "accessibility",
+    "ARIA"
   ],
   "dependencies": {
     "jquery": ">1.11.1"
