@@ -14,6 +14,7 @@ $(document).ready(function(){
                     $options = $this.data(),
                     $accordions_headers = $this.find( ".js-accordion__header" ),
                     $accordions_prefix_classes = $options.accordionPrefixClasses || '',
+                    $accordions_multiselectable = $options.accordionMultiselectable || '',
                     $index_accordion = index+1 ;
                     
                 $this.attr({
@@ -21,6 +22,11 @@ $(document).ready(function(){
                       "aria-multiselectable": "true",
                       "class": $accordions_prefix_classes
                 });
+                
+                // multiselectable or not
+                if ($accordions_multiselectable === "none") {
+                   $this.attr( "aria-multiselectable", "false" );
+                   }
                 
                 $accordions_headers.each( function( index_h ) {
                       var $that = $( this ),
@@ -81,7 +87,9 @@ $(document).ready(function(){
                 var $this = $( this ),
                     $this_panel = $( "#" + $this.attr("aria-controls" )),
                     $accordion = $this.parent(),
-                    $all_accordion_headers = $accordion.find( ".js-accordion__header" );
+                    $accordion_multiselectable = $accordion.attr( "aria-multiselectable" ),
+                    $all_accordion_headers = $accordion.find( ".js-accordion__header" ),
+                    $all_accordion_panels = $accordion.find( ".js-accordion__panel" );
                 
                 $all_accordion_headers.attr( "aria-selected", "false" );
                 $this.attr( "aria-selected", "true" );
@@ -95,6 +103,12 @@ $(document).ready(function(){
                            $this.attr( "aria-expanded", "false" );
                            $this_panel.attr( "aria-hidden", "true" );
                           }
+                          
+                if ( $accordion_multiselectable == "false" ){
+                   $all_accordion_panels.not( $this_panel ).attr( "aria-hidden", "true" );
+                   $all_accordion_headers.not( $this ).attr( "aria-expanded", "false" );
+                   }
+                          
                 setTimeout(function(){ $this.focus(); }, 0);
                 event.preventDefault();
                 
