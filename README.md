@@ -1,5 +1,12 @@
 # jQuery Accessible Accordion System, using <abbr title="Accessible Rich Internet Application">ARIA</abbr>
 
+===========================
+## Demo
+
+A demo page is here: http://a11y.nicolas-hoffmann.net/accordion/ 
+
+It can be included for one, two accordion systems or more in a page.
+
 <p>This jQuery plugin will transform a simple list of  <code>hx</code> and <code>div</code>’s into a <strong>fantastic-shiny accordion system</strong>, using <abbr title="Accessible Rich Internet Application">ARIA</abbr>.</p>
 ===========================
 ```
@@ -70,10 +77,26 @@ __New: if you focus on next/prev buttons__
 __Warning__: Ctrl+PageUp/PageDown combination could activate for some browsers a switch of browser tabs. Nothing to do for this, as far as I know (if you have a solution, let me know).
 
 ===========================
-## Demo
+## Bonuses
 
-A demo page is here: http://a11y.nicolas-hoffmann.net/accordion/ 
+__Content opened by default__
 
-It can be included for one, two accordion systems or more in a page.
+If you want to have an accordion content opened by default, just add the attribute ```data-accordion-opened="true"``` on a hx, example:
+```
+<h2 class="js-accordion__header" data-accordion-opened="true">
+ Second tab
+</h2>
+```
+
+__Other options__
+
+The ARIA Design Pattern for accordions (http://www.w3.org/TR/wai-aria-practices/#accordion) allows to have several accordion panels opened at the same time (which is shown by the attribute ```aria-multiselectable="true"```). However, you might need to avoid this for design purposes or client request. To do this, you may set this attribute on the accordion container: ```data-accordion-multiselectable="none"```. Example:
+
+```<div class="js-accordion" data-accordion-multiselectable="none" …>```
+
+This option will set up ```aria-multiselectable="false"``` and the plugin will allow only one panel to be opened at the same time.
+
 
 Enjoy.
+
+<img src="http://www.nicolas-hoffmann.net/bordel/chuck-norris1.jpg" alt="Chuck Norris approved this" />
