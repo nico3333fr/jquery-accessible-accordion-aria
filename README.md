@@ -1,6 +1,5 @@
 # jQuery Accessible Accordion System, using <abbr title="Accessible Rich Internet Application">ARIA</abbr>
 
-===========================
 ## Demo
 
 A demo page is here: http://a11y.nicolas-hoffmann.net/accordion/ 
