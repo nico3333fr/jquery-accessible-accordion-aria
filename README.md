@@ -87,6 +87,52 @@ If you want to have an accordion content opened by default, just add the attribu
 </h2>
 ```
 
+__Wanna see it animated?__
+
+In the demo http://a11y.nicolas-hoffmann.net/accordion/?animated=1 , you can see it animated. I’ve changed the attribute ```data-accordion-prefix-classes="minimalist-accordion"``` to ```animated-accordion```, without changing (almost) anything else to the page. Magic? No. :)
+
+The magic is the same used for my <a href="http://a11y.nicolas-hoffmann.net/hide-show/">jQuery simple and accessible hide-show system animated</a>.
+
+In fact, it is possible using some CSS transitions. You have to keep in mind several things to keep it accessible:
+
+- You can’t animate the ```display``` property, and ```height``` property might be complicated too to animate.
+- So you can’t use ```display: none;``` to hide a content (even for assistive technologies).
+- You have to set up ```visibility``` to ```visible``` or ```hidden``` to show/hide a content.
+- Basically, you should animate ```max-height```, ```opacity``` (if needed), and use ```visibility``` to hide content to assistive technology.
+
+So here is the CSS code (unprefixed):
+
+```
+.animated-accordion__panel {
+ display: block;
+ overflow: hidden;
+ opacity: 1;
+ transition: visibility 0s ease, max-height 1s ease, opacity 1s ease ;
+ max-height: 100em;
+ /* magic number for max-height = enough height */
+ visibility: visible;
+ transition-delay: 0s;
+ margin: 0;
+ padding: 0;
+}
+/* This is the hidden state */
+[aria-hidden=true].animated-accordion__panel {
+ display: block;
+ max-height: 0;
+ opacity: 0;
+ visibility: hidden;
+ transition-delay: 1s, 0s, 0s;
+ margin: 0;
+ padding: 0;
+}
+```
+
+Here is the trick: from “hidden” to “visible” state, ```visibility ```is immediately set up to ```visible```, and ```max-height```/```opacity``` are “normally” animated.
+
+From “visible” to “hidden” state, the ```visibility``` animation is delayed. So the content will be immediately hidden… at the end of the animation of max-height/opacity.
+
+
+
 __Other options__
 
 The ARIA Design Pattern for accordions (http://www.w3.org/TR/wai-aria-practices/#accordion) allows to have several accordion panels opened at the same time (which is shown by the attribute ```aria-multiselectable="true"```). However, you might need to avoid this for design purposes or client request. To do this, you may set this attribute on the accordion container: ```data-accordion-multiselectable="none"```. Example:
