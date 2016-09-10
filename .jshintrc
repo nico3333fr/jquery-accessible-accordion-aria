@@ -1,0 +1,29 @@
+{
+  "globals": {},
+
+  "browser"     : true,
+  "browserify"  : true,
+  "module"      : true,
+
+  "esversion"   : 6,
+  "strict"      : "global",
+  "latedef"     : true,
+  "undef"       : true,
+  "bitwise"     : true,
+  "curly"       : true,
+  "eqeqeq"      : true,
+  "eqnull"      : true,
+  "unused"      : true,
+  "noarg"       : true,
+  "trailing"    : true,
+  "nonbsp"      : true,
+  "forin"       : true,
+  "iterator"    : true,
+  "nocomma"     : true,
+  "nonew"       : true,
+  "notypeof"    : true,
+  "shadow"      : false,
+  "singleGroups": true,
+  "lastsemic"   : true,
+  "plusplus"    : true
+}
