@@ -12,26 +12,36 @@
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="../jquery-accessible-accordion-aria.js"></script>
 
+<script>
+  $(function () {
+    $('.js-accordion').accordion();
+  });
+</script>
+
 <style>
-.minimalist-accordion__panel[aria-hidden=true] {
+.js-accordion__panel[aria-hidden=true] {
   display: none;
 }
 
-.minimalist-accordion__header {
+.js-accordion__panel[role="tabpanel"] .js-accordion__header {
+  display: none;
+}
+
+button.js-accordion__header {
   display: block;
 }
 
-.minimalist-accordion__header[aria-expanded="true"]:before {
-  content: "- ";
+.js-accordion__header[aria-expanded="true"]:before {
+  content: "- ";
 }
-.minimalist-accordion__header[aria-expanded="false"]:before {
-  content: "+ ";
+.js-accordion__header[aria-expanded="false"]:before {
+  content: "+ ";
 }
 
-.minimalist-accordion__header[aria-selected="true"]:after {
+.js-accordion__header[aria-selected="true"]:after {
   content: " (selected)";
 }
-.minimalist-accordion__header[aria-selected="false"]:after {
+.js-accordion__header[aria-selected="false"]:after {
   content: " (unselected)";
 }
 
@@ -44,29 +54,81 @@
 <div id="page">
   <h1>Accordion example</h1>
 
-  <div class="js-accordion" data-accordion-prefix-classes="minimalist-accordion">
-    <h2 class="js-accordion__header">First tab</h2>
+  <div id="accordion_0" class="js-accordion">
     <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">First tab</h2>
       here the content of 1st tab<br><br>
       <a href="#">pweet</a><br><br>
       plop
     </div>
-
-    <h2 class="js-accordion__header" data-accordion-opened="true">Second tab</h2>
     <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Second tab</h2>
       here the content of 2nd tab<br><br>
       <a href="#">pweet</a><br><br>
       plop
     </div>
-
-    <h2 class="js-accordion__header">Third tab</h2>
     <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Third tab</h2>
       here the content of 3rd tab<br><br>
       plop
     </div>
-
-    <h2 class="js-accordion__header">Fourth tab</h2>
     <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Fourth tab</h2>
+      here the content of 4th tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+  </div>
+
+  <br><br><br>
+  <div id="accordion_1" class="js-accordion">
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">First tab</h2>
+      here the content of 1st tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel" data-accordion-open="true">
+      <h2 class="js-accordion__header">Second tab</h2>
+      here the content of 2nd tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Third tab</h2>
+      here the content of 3rd tab<br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Fourth tab</h2>
+      here the content of 4th tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+  </div>
+
+  <br><br><br>
+
+  <div id="accordion_2" class="js-accordion" data-accordion-multiselectable="true">
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">First tab</h2>
+      here the content of 1st tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel" data-accordion-open="true">
+      <h2 class="js-accordion__header">Second tab</h2>
+      here the content of 2nd tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Third tab</h2>
+      here the content of 3rd tab<br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Fourth tab</h2>
       here the content of 4th tab<br><br>
       <a href="#">pweet</a><br><br>
       plop
