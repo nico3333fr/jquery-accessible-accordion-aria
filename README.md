@@ -2,7 +2,7 @@
 
 ## Demo
 
-A demo page is here: http://a11y.nicolas-hoffmann.net/accordion/
+A demo page is here: https://a11y.nicolas-hoffmann.net/accordion/
 
 It can be included for one, two accordion systems or more in a page.
 
@@ -89,9 +89,9 @@ If you want to have an accordion content opened by default, just add the attribu
 
 __Wanna see it animated?__
 
-In the demo http://a11y.nicolas-hoffmann.net/accordion/?animated=1 , you can see it animated. I’ve changed the attribute ```data-accordion-prefix-classes="minimalist-accordion"``` to ```animated-accordion```, without changing (almost) anything else to the page. Magic? No. :)
+In the demo https://a11y.nicolas-hoffmann.net/accordion/?animated=1 , you can see it animated. I’ve changed the attribute ```data-accordion-prefix-classes="minimalist-accordion"``` to ```animated-accordion```, without changing (almost) anything else to the page. Magic? No. :)
 
-The magic is the same used for my <a href="http://a11y.nicolas-hoffmann.net/hide-show/">jQuery simple and accessible hide-show system animated</a>.
+The magic is the same used for my <a href="https://a11y.nicolas-hoffmann.net/hide-show/">jQuery simple and accessible hide-show system animated</a>.
 
 In fact, it is possible using some CSS transitions. You have to keep in mind several things to keep it accessible:
 
@@ -142,6 +142,12 @@ The ARIA Design Pattern for accordions (http://www.w3.org/TR/wai-aria-practices/
 This option will set up ```aria-multiselectable="false"``` and the plugin will allow only one panel to be opened at the same time.
 
 
+__RTL Support__
+
+If the accordion is used on a RTL website, the keys will adapt themselves to it. :)
+
+
+
 Enjoy.
 
-<img src="http://www.nicolas-hoffmann.net/bordel/chuck-norris1.jpg" alt="Chuck Norris approved this" />
+<img src="https://www.nicolas-hoffmann.net/bordel/chuck-norris1.jpg" alt="Chuck Norris approved this" />
