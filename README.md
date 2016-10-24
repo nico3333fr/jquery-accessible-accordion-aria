@@ -2,7 +2,7 @@
 
 ## Demo
 
-A demo page is here: http://a11y.nicolas-hoffmann.net/accordion/ 
+A demo page is here: http://a11y.nicolas-hoffmann.net/accordion/
 
 It can be included for one, two accordion systems or more in a page.
 
@@ -10,28 +10,28 @@ It can be included for one, two accordion systems or more in a page.
 ===========================
 ```
 <div class="js-accordion" data-accordion-prefix-classes="your-prefix-class">
- <h2 class="js-accordion__header">First tab</h2>
  <div class="js-accordion__panel">
+   <h2 class="js-accordion__header">First tab</h2>
    here the content of 1st tab<br><br>
    <a href="#">pweet</a><br><br>
    plop
  </div>
- 
- <h2 class="js-accordion__header" data-accordion-opened="true">Second tab</h2>
+
  <div class="js-accordion__panel">
+   <h2 class="js-accordion__header" data-accordion-opened="true">Second tab</h2>
    here the content of 2nd tab<br><br>
    <a href="#">pweet</a><br><br>
    plop
  </div>
- 
- <h2 class="js-accordion__header">Third tab</h2>
+
  <div class="js-accordion__panel">
+   <h2 class="js-accordion__header">Third tab</h2>
    here the content of 3rd tab<br><br>
    plop
  </div>
- 
- <h2 class="js-accordion__header">Fourth tab</h2>
+
  <div class="js-accordion__panel">
+   <h2 class="js-accordion__header">Fourth tab</h2>
    here the content of 4th tab<br><br>
    <a href="#">pweet</a><br><br>
    plop
@@ -64,7 +64,7 @@ __If you focus in a accordion content__
 - use Ctrl Up/left to Set focus on the carrousel button for the currently displayed carrousel tab
 - use Ctrl PageUp to Set focus on the previous carrousel button for the currently displayed carrousel tab
 - use Ctrl PageDown to Set focus on the next carrousel button for the currently displayed carrousel tab
- 
+
 And strike space or return on an accordion button to open/close it
 
 __New: if you focus on next/prev buttons__

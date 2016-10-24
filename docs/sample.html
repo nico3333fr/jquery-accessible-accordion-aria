@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Accordion example</title>
+<meta charset="utf-8" />
+<meta name="author" content="Nicolas Hoffmann" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" href="http://rocssti.net/downloads/rocssti-fr.css" />
+
+
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="../jquery-accessible-accordion-aria.js"></script>
+
+<script>
+  $(function () {
+    $('.js-accordion').accordion();
+  });
+</script>
+
+<style>
+.js-accordion__panel[aria-hidden=true] {
+  display: none;
+}
+
+.js-accordion__panel[role="tabpanel"] .js-accordion__header {
+  display: none;
+}
+
+button.js-accordion__header {
+  display: block;
+}
+
+.js-accordion__header[aria-expanded="true"]:before {
+  content: "- ";
+}
+.js-accordion__header[aria-expanded="false"]:before {
+  content: "+ ";
+}
+
+.js-accordion__header[aria-selected="true"]:after {
+  content: " (selected)";
+}
+.js-accordion__header[aria-selected="false"]:after {
+  content: " (unselected)";
+}
+
+#page {
+  width: 960px;
+}
+</style>
+</head>
+<body role="document">
+<div id="page">
+  <h1>Accordion example</h1>
+
+  <div id="accordion_0" class="js-accordion">
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">First tab</h2>
+      here the content of 1st tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Second tab</h2>
+      here the content of 2nd tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Third tab</h2>
+      here the content of 3rd tab<br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Fourth tab</h2>
+      here the content of 4th tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+  </div>
+
+  <br><br><br>
+  <div id="accordion_1" class="js-accordion">
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">First tab</h2>
+      here the content of 1st tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel" data-accordion-open="true">
+      <h2 class="js-accordion__header">Second tab</h2>
+      here the content of 2nd tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Third tab</h2>
+      here the content of 3rd tab<br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Fourth tab</h2>
+      here the content of 4th tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+  </div>
+
+  <br><br><br>
+
+  <div id="accordion_2" class="js-accordion" data-accordion-multiselectable="true">
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">First tab</h2>
+      here the content of 1st tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel" data-accordion-open="true">
+      <h2 class="js-accordion__header">Second tab</h2>
+      here the content of 2nd tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Third tab</h2>
+      here the content of 3rd tab<br><br>
+      plop
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Fourth tab</h2>
+      here the content of 4th tab<br><br>
+      <a href="#">pweet</a><br><br>
+      plop
+    </div>
+  </div>
+
+  <br><br><br>
+  <a href="http://www.w3.org/TR/wai-aria-practices/#accordion">Design pattern</a>
+  <br><br>
+  <a href="http://a11y.nicolas-hoffmann.net/accordion/">jQuery Accessible tab panel system, using ARIA</a>
+
+</div>
+</body>
+</html>

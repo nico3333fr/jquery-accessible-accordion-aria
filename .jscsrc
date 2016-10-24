@@ -1,0 +1,66 @@
+{
+  "disallowEmptyBlocks": true,
+  "disallowImplicitTypeConversion": ["binary", "string"],
+  "disallowKeywords": ["eval"],
+  "disallowMixedSpacesAndTabs": true,
+  "disallowMultipleLineStrings": true,
+  "disallowNewlineBeforeBlockStatements": true,
+  "disallowOperatorBeforeLineBreak": ["."],
+  "disallowPaddingNewlinesBeforeKeywords": ["catch"],
+  "disallowPaddingNewlinesInBlocks": true,
+  "disallowSpaceAfterPrefixUnaryOperators": true,
+  "disallowSpaceBeforeComma": true,
+  "disallowSpaceBeforePostfixUnaryOperators": true,
+  "disallowSpacesInCallExpression": true,
+  "disallowSpacesInFunctionDeclaration": {
+    "beforeOpeningRoundBrace": true
+  },
+  "disallowSpacesInNamedFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+  "disallowSpacesInsideParentheses": true,
+  "disallowSpacesInsideParenthesizedExpression": true,
+  "disallowTrailingComma": true,
+  "disallowTrailingWhitespace": true,
+  "disallowYodaConditions": true,
+
+  "requireBlocksOnNewline": 1,
+  "requireCapitalizedConstructors": true,
+  "requireCamelCaseOrUpperCaseIdentifiers": true,
+  "requireCommaBeforeLineBreak": true,
+  "requireCurlyBraces": true,
+  "requireKeywordsOnNewLine": ["for", "while"],
+  "requireLineFeedAtFileEnd": true,
+  "requireOperatorBeforeLineBreak": [
+    "?", ":", "=", "+", "-", "/", "*", "==", "===",
+    "!=","!==", ">", ">=", "<", "<=", "&&", "||"
+  ],
+  "requirePaddingNewLinesAfterUseStrict": true,
+  "requireParenthesesAroundIIFE": true,
+  "requireSemicolons": true,
+  "requireSpaceAfterBinaryOperators": true,
+  "requireSpaceAfterKeywords": true,
+  "requireSpaceBeforeBinaryOperators": true,
+  "requireSpaceBeforeBlockStatements": true,
+  "requireSpaceBeforeObjectValues": true,
+  "requireSpaceBetweenArguments": true,
+  "requireSpacesInConditionalExpression": true,
+  "requireSpacesInFunction": {
+    "beforeOpeningCurlyBrace": true
+  },
+  "requireSpacesInAnonymousFunctionExpression" : {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "requireSpacesInForStatement": true,
+
+  "validateIndentation": 2,
+  "validateLineBreaks": "LF",
+  "validateQuoteMarks": "'",
+
+  "disallowNodeTypes": [
+    "EmptyStatement",
+    "SwitchStatement",
+    "WithStatement"
+  ]
+}
