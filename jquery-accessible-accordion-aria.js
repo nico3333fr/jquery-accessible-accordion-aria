@@ -1,6 +1,6 @@
 /*
  * jQuery Accessible Accordion system, using ARIA
- * Website: http://a11y.nicolas-hoffmann.net/accordion/
+ * Website: https://a11y.nicolas-hoffmann.net/accordion/
  * License MIT: https://github.com/nico3333fr/jquery-accessible-accordion-aria/blob/master/LICENSE
  */
 (function ($) {
@@ -15,7 +15,12 @@
       type: 'button'
     }),
     buttonSuffixId: '_tab',
-    multiselectable: false
+    multiselectable: true,
+    prefixClass: 'accordion',
+    headerSuffixClass: '__title',
+    buttonSuffixClass: '__header',
+    panelSuffixClass: '__panel',
+    direction: 'ltr'
   };
 
   var Accordion = function ($el, options) {
@@ -32,14 +37,14 @@
     this.$wrapper.attr({
       'role': 'tablist',
       'aria-multiselectable': this.options.multiselectable.toString()
-    });
+    }).addClass(this.options.prefixClass);
 
     this.$panels.each($.proxy(function (index, el) {
       var $panel = $(el);
       var $header = $(this.options.headersSelector, $panel);
       var $button = this.options.button.clone().text($header.text());
 
-      $header.attr('tabindex', '0');
+      $header.attr('tabindex', '0').addClass(this.options.prefixClass + this.options.headerSuffixClass);
       $panel.before($button);
 
       var panelId = $panel.attr('id') || this.$wrapper.attr('id') + '-' + index;
@@ -52,17 +57,17 @@
         'id': buttonId,
         'tabindex': '-1',
         'aria-selected': 'false'
-      });
+      }).addClass(this.options.prefixClass + this.options.buttonSuffixClass);
 
       $panel.attr({
         'aria-labelledby': buttonId,
         'role': 'tabpanel',
         'id': panelId,
         'aria-hidden': 'true'
-      });
+      }).addClass(this.options.prefixClass + this.options.panelSuffixClass);
 
       // if opened by default
-      if ($panel.attr('data-accordion-open') === 'true') {
+      if ($panel.attr('data-accordion-opened') === 'true') {
         $button.attr({
           'aria-expanded': 'true',
           'data-accordion-opened': null
@@ -143,9 +148,14 @@
     var $nextButton = $button.nextAll(this.options.buttonsSelector).first();
     var $target = null;
 
-    var k = {
-      prev: [37, 38], // up & left
-      next: [39, 40], // down & right
+    var k = this.options.direction === 'ltr' ? {
+      prev: [38, 37], // up & left
+      next: [40, 39], // down & right
+      first: 36, // home
+      last: 35 // end
+    } : {
+      prev: [38, 39], // up & left
+      next: [40, 37], // down & right
       first: 36, // home
       last: 35 // end
     };
@@ -238,9 +248,10 @@
       var $el = $(this);
 
       var specificOptions = {
-        multiselectable: $el.attr('data-accordion-multiselectable') === 'true' ? true : options.multiselectable
+        multiselectable: $el.attr('data-accordion-multiselectable') === 'true' ? true : options.multiselectable,
+        prefixClass: typeof($el.attr('data-accordion-prefix-classes')) !== 'undefined' ? $el.attr('data-accordion-prefix-classes') : options.prefixClass,
+        direction: $el.closest('[dir="rtl"]').length > 0 ? 'rtl' : options.direction
       };
-
       specificOptions = $.extend({}, options, specificOptions);
 
       $el.data[PLUGIN] = new Accordion($el, specificOptions);
