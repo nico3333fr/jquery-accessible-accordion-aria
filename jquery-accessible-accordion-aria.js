@@ -146,6 +146,7 @@
       $button.focus();
     }, 0);
 
+    e.stopPropagation()
     e.preventDefault();
   };
 
