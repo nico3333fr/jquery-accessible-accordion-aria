@@ -259,7 +259,7 @@
       var $el = $(this);
 
       var specificOptions = {
-        multiselectable: $el.attr('data-accordion-multiselectable') === 'true' ? true : options.multiselectable,
+        multiselectable: $el.attr('data-accordion-multiselectable') === 'none' ? false : true,
         prefixClass: typeof($el.attr('data-accordion-prefix-classes')) !== 'undefined' ? $el.attr('data-accordion-prefix-classes') : options.prefixClass,
         direction: $el.closest('[dir="rtl"]').length > 0 ? 'rtl' : options.direction
       };
