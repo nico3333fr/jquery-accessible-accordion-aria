@@ -7,6 +7,7 @@ A demo page is here: https://a11y.nicolas-hoffmann.net/accordion/
 It can be included for one, two accordion systems or more in a page.
 
 <p>This jQuery plugin will transform a simple list of  <code>hx</code> and <code>div</code>’s into a <strong>fantastic-shiny accordion system</strong>, using <abbr title="Accessible Rich Internet Application">ARIA</abbr>.</p>
+
 ===========================
 ```
 <div class="js-accordion" data-accordion-prefix-classes="your-prefix-class">
@@ -38,6 +39,7 @@ It can be included for one, two accordion systems or more in a page.
  </div>
 </div>
 ```
+
 ===========================
 ## How it works
 
