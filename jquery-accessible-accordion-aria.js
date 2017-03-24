@@ -207,7 +207,7 @@
   };
 
   Accordion.prototype.keydownPanelEventHandler = function (e) {
-    var $panel = $(e.target);
+    var $panel = $(e.target).closest(this.options.panelsSelector);
     var $button = $('#' + $panel.attr('aria-labelledby'));
     var $firstButton = this.$wrapper.find(this.options.buttonsSelector).first();
     var $lastButton = this.$wrapper.find(this.options.buttonsSelector).last();
@@ -230,6 +230,7 @@
 
     if ($target !== null) {
       this.goToHeader($target);
+      e.preventDefault();
     }
   };
 
