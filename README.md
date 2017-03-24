@@ -8,7 +8,7 @@ It can be included for one, two accordion systems or more in a page.
 
 <p>This jQuery plugin will transform a simple list of  <code>hx</code> and <code>div</code>’s into a <strong>fantastic-shiny accordion system</strong>, using <abbr title="Accessible Rich Internet Application">ARIA</abbr>.</p>
 
-===========================
+
 ```
 <div class="js-accordion" data-accordion-prefix-classes="your-prefix-class">
  <div class="js-accordion__panel">
@@ -40,7 +40,6 @@ It can be included for one, two accordion systems or more in a page.
 </div>
 ```
 
-===========================
 ## How it works
 
 Basically:
@@ -50,7 +49,6 @@ Basically:
 - Once the HTML markup is set up, all ARIA attributes are added to make the link between accordion buttons and accordion contents, to know which one is related to which other.
 - Keyboard shortcuts of ARIA Design Pattern for accordions are added, and you can easily navigate and use it.
 
-===========================
 ## Keyboard
 
 Keyboard navigation is supported, based on ARIA DP (http://www.w3.org/TR/wai-aria-practices/#accordion):
@@ -77,7 +75,6 @@ __New: if you focus on next/prev buttons__
 
 __Warning__: Ctrl+PageUp/PageDown combination could activate for some browsers a switch of browser tabs. Nothing to do for this, as far as I know (if you have a solution, let me know).
 
-===========================
 ## Bonuses
 
 __Content opened by default__
