@@ -18,8 +18,8 @@ It can be included for one, two accordion systems or more in a page.
    plop
  </div>
 
- <div class="js-accordion__panel">
-   <h2 class="js-accordion__header" data-accordion-opened="true">Second tab</h2>
+ <div class="js-accordion__panel" data-accordion-opened="true">
+   <h2 class="js-accordion__header">Second tab</h2>
    here the content of 2nd tab<br><br>
    <a href="#">pweet</a><br><br>
    plop
