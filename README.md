@@ -79,11 +79,9 @@ __Warning__: Ctrl+PageUp/PageDown combination could activate for some browsers a
 
 __Content opened by default__
 
-If you want to have an accordion content opened by default, just add the attribute ```data-accordion-opened="true"``` on a hx, example:
+If you want to have an accordion content opened by default, just add the attribute ```data-accordion-opened="true"``` on a ```js-accordion__panel```, example:
 ```
-<h2 class="js-accordion__header" data-accordion-opened="true">
- Second tab
-</h2>
+<div class="js-accordion__panel" data-accordion-opened="true">
 ```
 
 __Wanna see it animated?__
