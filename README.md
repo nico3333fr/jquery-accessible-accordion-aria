@@ -75,6 +75,36 @@ __New: if you focus on next/prev buttons__
 
 __Warning__: Ctrl+PageUp/PageDown combination could activate for some browsers a switch of browser tabs. Nothing to do for this, as far as I know (if you have a solution, let me know).
 
+## All options of the plugin
+   
+```var defaultConfig = {
+ headersSelector: '.js-accordion__header',
+ panelsSelector: '.js-accordion__panel',
+ buttonsSelector: 'button.js-accordion__header',
+ buttonsGeneratedContent: 'text', // html
+ button: $('<button></button>', {
+  class: 'js-accordion__header',
+  type: 'button'
+ }),
+ buttonSuffixId: '_tab',
+ multiselectable: true,
+ prefixClass: 'accordion',
+ headerSuffixClass: '__title',
+ buttonSuffixClass: '__header',
+ panelSuffixClass: '__panel',
+ direction: 'ltr', // rtl
+ accordionPrefixId: 'accordion'
+};
+```
+
+When calling the plugin, you may set up options as you want. For example:
+  
+```$(function () {
+   $('.js-accordion').accordion({ buttonsGeneratedContent: 'html' });
+});```
+
+Will call the plugin and generate buttons keeping <abbr title="HyperText Markup Language">HTML</abbr> content in the <code>Hx</code>.
+
 ## Bonuses
 
 __Content opened by default__

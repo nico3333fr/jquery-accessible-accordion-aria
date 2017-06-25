@@ -1,6 +1,6 @@
 /*
  * jQuery Accessible Accordion system, using ARIA
- * @version v2.4.0 
+ * @version v2.4.1 
  * Website: https://a11y.nicolas-hoffmann.net/accordion/
  * License MIT: https://github.com/nico3333fr/jquery-accessible-accordion-aria/blob/master/LICENSE
  */
@@ -63,7 +63,7 @@
         this.$panels.each($.proxy(function(index, el) {
             var $panel = $(el);
             var $header = $(this.options.headersSelector, $panel);
-            var $button = this.options.buttonsGeneratedContent === 'text' ? this.options.button.clone().text($header.text()) : this.options.button.clone().html($header.html());
+            var $button = this.options.buttonsGeneratedContent === 'html' ? this.options.button.clone().html($header.html()) : this.options.button.clone().text($header.text());
 
             $header.attr('tabindex', '0').addClass(this.options.prefixClass + this.options.headerSuffixClass);
             $panel.before($button);
@@ -288,7 +288,3 @@
     $.fn[PLUGIN].defaults = defaultConfig;
 
 }));
-
-$(function() {
-    $('.js-accordion').accordion();
-});
