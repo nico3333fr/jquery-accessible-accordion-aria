@@ -99,9 +99,11 @@ __Warning__: Ctrl+PageUp/PageDown combination could activate for some browsers a
 
 When calling the plugin, you may set up options as you want. For example:
   
-```$(function () {
+```
+$(function () {
    $('.js-accordion').accordion({ buttonsGeneratedContent: 'html' });
-});```
+});
+```
 
 Will call the plugin and generate buttons keeping <abbr title="HyperText Markup Language">HTML</abbr> content in the <code>Hx</code>.
 
@@ -110,6 +112,7 @@ Will call the plugin and generate buttons keeping <abbr title="HyperText Markup 
 __Content opened by default__
 
 If you want to have an accordion content opened by default, just add the attribute ```data-accordion-opened="true"``` on a ```js-accordion__panel```, example:
+
 ```
 <div class="js-accordion__panel" data-accordion-opened="true">
 ```
@@ -164,7 +167,9 @@ __Other options__
 
 The ARIA Design Pattern for accordions (http://www.w3.org/TR/wai-aria-practices/#accordion) allows to have several accordion panels opened at the same time (which is shown by the attribute ```aria-multiselectable="true"```). However, you might need to avoid this for design purposes or client request. To do this, you may set this attribute on the accordion container: ```data-accordion-multiselectable="none"```. Example:
 
-```<div class="js-accordion" data-accordion-multiselectable="none" …>```
+```
+<div class="js-accordion" data-accordion-multiselectable="none" …>
+```
 
 This option will set up ```aria-multiselectable="false"``` and the plugin will allow only one panel to be opened at the same time.
 
