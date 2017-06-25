@@ -1,6 +1,6 @@
 /*
  * jQuery Accessible Accordion system, using ARIA
- * @version v2.3.1
+ * @version v2.4.0 
  * Website: https://a11y.nicolas-hoffmann.net/accordion/
  * License MIT: https://github.com/nico3333fr/jquery-accessible-accordion-aria/blob/master/LICENSE
  */
@@ -20,6 +20,7 @@
         headersSelector: '.js-accordion__header',
         panelsSelector: '.js-accordion__panel',
         buttonsSelector: 'button.js-accordion__header',
+        buttonsGeneratedContent: 'text',
         button: $('<button></button>', {
             class: 'js-accordion__header',
             type: 'button'
@@ -62,7 +63,7 @@
         this.$panels.each($.proxy(function(index, el) {
             var $panel = $(el);
             var $header = $(this.options.headersSelector, $panel);
-            var $button = this.options.button.clone().text($header.text());
+            var $button = this.options.buttonsGeneratedContent === 'text' ? this.options.button.clone().text($header.text()) : this.options.button.clone().html($header.html());
 
             $header.attr('tabindex', '0').addClass(this.options.prefixClass + this.options.headerSuffixClass);
             $panel.before($button);
@@ -118,7 +119,8 @@
     };
 
     Accordion.prototype.focusButtonEventHandler = function(e) {
-        var $button = $(e.target);
+        var $target = $(e.target);
+        var $button = $target.is('button') ? $target : $target.closest('button');
 
         $(this.options.buttonsSelector, this.$wrapper).attr({
             'tabindex': '-1',
@@ -132,7 +134,8 @@
     };
 
     Accordion.prototype.clickButtonEventHandler = function(e) {
-        var $button = $(e.target);
+        var $target = $(e.target);
+        var $button = $target.is('button') ? $target : $target.closest('button');
         var $panel = $('#' + $button.attr('aria-controls'));
 
         this.$buttons.attr('aria-selected', 'false');
@@ -161,12 +164,14 @@
     };
 
     Accordion.prototype.keydownButtonEventHandler = function(e) {
-        var $button = $(e.target);
+        var $target = $(e.target);
+        var $button = $target.is('button') ? $target : $target.closest('button');
         var $firstButton = this.$buttons.first();
         var $lastButton = this.$buttons.last();
         var $prevButton = $button.prevAll(this.options.buttonsSelector).first();
         var $nextButton = $button.nextAll(this.options.buttonsSelector).first();
-        var $target = null;
+
+        $target = null;
 
         var k = this.options.direction === 'ltr' ? {
             prev: [38, 37], // up & left
@@ -271,6 +276,7 @@
             var specificOptions = {
                 multiselectable: $el.attr('data-accordion-multiselectable') === 'none' ? false : options.multiselectable,
                 prefixClass: typeof($el.attr('data-accordion-prefix-classes')) !== 'undefined' ? $el.attr('data-accordion-prefix-classes') : options.prefixClass,
+                buttonsGeneratedContent: typeof($el.attr('data-accordion-button-generated-content')) !== 'undefined' ? $el.attr('data-accordion-button-generated-content') : options.buttonsGeneratedContent,
                 direction: $el.closest('[dir="rtl"]').length > 0 ? 'rtl' : options.direction
             };
             specificOptions = $.extend({}, options, specificOptions);
@@ -282,3 +288,7 @@
     $.fn[PLUGIN].defaults = defaultConfig;
 
 }));
+
+$(function() {
+    $('.js-accordion').accordion();
+});
