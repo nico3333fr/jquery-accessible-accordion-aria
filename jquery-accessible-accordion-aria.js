@@ -1,6 +1,6 @@
 /*
  * jQuery Accessible Accordion system, using ARIA
- * @version v2.4.3 
+ * @version v2.4.4 
  * Website: https://a11y.nicolas-hoffmann.net/accordion/
  * License MIT: https://github.com/nico3333fr/jquery-accessible-accordion-aria/blob/master/LICENSE
  */
@@ -53,10 +53,11 @@
 
         // id generated if not present
         this.$wrapper.each($.proxy(function(index, el) {
-            var $wrapper = $(el)
+            var $wrapper = $(el);
+            var index_lisible = Math.random().toString(32).slice(2, 12);
 
             if (!$wrapper.attr('id')) {
-                $wrapper.attr('id', this.options.accordionPrefixId + '-' + index);
+                $wrapper.attr('id', this.options.accordionPrefixId + '-' + index_lisible);
             }
         }, this));
 
