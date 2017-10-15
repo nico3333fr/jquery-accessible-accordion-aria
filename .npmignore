@@ -1,0 +1,6 @@
+.editorconfig
+.travis.yml
+.eslint.js
+bower.json
+*-legacy.js
+docs
