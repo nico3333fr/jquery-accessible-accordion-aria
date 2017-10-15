@@ -3,24 +3,8 @@
   "name": "jquery-accessible-accordion-aria",
   "description": "This jQuery plugin will provide you an accessible Accordion System, using ARIA",
   "version": "2.4.4",
-  "main": "jquery-accessible-accordion-aria.js",
-  "keywords": [
-    "Accessibility",
-    "ARIA",
-    "accordion",
-    "a11y",
-    "jQuery Plugin"
-  ],
-  "author": [
-    {
-      "name": "Nicolas Hoffmann",
-      "email": "dante3333@gmail.com",
-      "web": "https://www.nicolas-hoffmann.net/"
-    }
-  ],
-  "dependencies": {
-    "jquery": ">=1.0.0"
-  },
+  "main": "index.js",
+  "homepage": "https://a11y.nicolas-hoffmann.net/accordion/",
   "bugs": {
     "web": "https://github.com/nico3333fr/jquery-accessible-accordion-aria/issues"
   },
@@ -30,11 +14,33 @@
       "url": "https://github.com/nico3333fr/jquery-accessible-accordion-aria.git"
     }
   ],
+  "keywords": [
+    "Accessibility",
+    "ARIA",
+    "accordion",
+    "a11y",
+    "jQuery Plugin"
+  ],
   "licenses": [
     {
       "name": "MIT",
       "url": "https://github.com/nico3333fr/jquery-accessible-accordion-aria/blob/master/LICENSE"
     }
   ],
-  "homepage": "https://a11y.nicolas-hoffmann.net/accordion/"
+  "author": [
+    {
+      "name": "Nicolas Hoffmann",
+      "email": "dante3333@gmail.com",
+      "web": "https://www.nicolas-hoffmann.net/"
+    }
+  ],
+  "scripts" : {
+    "test" : "eslint index.js"
+  },
+  "devDependencies": {
+    "eslint": "^4.8.0"
+  },
+  "dependencies": {
+    "jquery": ">=1.0.0"
+  }
 }
