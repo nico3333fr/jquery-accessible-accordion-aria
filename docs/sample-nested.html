@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Accordion example</title>
+<meta charset="utf-8" />
+<meta name="author" content="Nicolas Hoffmann" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" href="http://rocssti.net/downloads/rocssti-fr.css" />
+
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="../index.js"></script>
+
+<script>
+$(function() {
+  $('.js-accordion').accordion({
+     headersSelector: '> .js-accordion__header', // relative to panel
+     panelsSelector: '> .js-accordion__panel', // relative to wrapper
+     buttonsSelector: '> button.js-accordion__header' // relative to wrapper
+  });
+});
+</script>
+
+<style>
+.js-accordion__panel[aria-hidden=true] {
+  display: none;
+}
+
+.js-accordion__panel[role="tabpanel"] .js-accordion__header {
+  display: none;
+}
+
+.js-accordion__panel {
+  padding-left: 2em;
+}
+
+button.js-accordion__header {
+  display: block !important;
+}
+
+.js-accordion__header[aria-expanded="true"]:before {
+  content: "- ";
+}
+.js-accordion__header[aria-expanded="false"]:before {
+  content: "+ ";
+}
+
+.js-accordion__header[aria-selected="true"]:after {
+  content: " (selected)";
+}
+.js-accordion__header[aria-selected="false"]:after {
+  content: " (unselected)";
+}
+
+#page {
+  width: 960px;
+}
+</style>
+</head>
+<body role="document">
+<div id="page">
+  <h1>Example of nested accordions</h1>
+
+  <div class="js-accordion" id="accordion1" data-accordion-prefix-classes="minimalist-accordion">
+    <div class="js-accordion__panel">
+        <h2 class="js-accordion__header">First tab</h2>
+        <p>Content of 1st tab</p>
+    </div>
+    <div class="js-accordion__panel">
+      <h2 class="js-accordion__header">Second tab</h2>
+      <p>Content of 2nd tab</p>
+
+      <div class="js-accordion" id="accordion_inner" data-accordion-prefix-classes="minimalist-accordion">
+          <div class="js-accordion__panel">
+              <h3 class="js-accordion__header">First tab</h3>
+              <p>Content of 1st tab</p>
+          </div>
+          <div class="js-accordion__panel">
+              <h2 class="js-accordion__header">Second tab</h2>
+              <p>Content of 2nd tab</p>
+          </div>
+          <div class="js-accordion__panel">
+              <h2 class="js-accordion__header">Third tab</h2>
+              <p>Content of 3rd tab</p>
+          </div>
+      </div>
+    </div>
+    <div class="js-accordion__panel">
+        <h2 class="js-accordion__header">Third tab</h2>
+        <p>Content of 3rd tab</p>
+    </div>
+  </div>
+
+  <br><br><br>
+  <a href="http://www.w3.org/TR/wai-aria-practices/#accordion">Design pattern</a>
+  <br><br>
+  <a href="http://a11y.nicolas-hoffmann.net/accordion/">jQuery Accessible tab panel system, using ARIA</a>
+
+</div>
+</body>
+</html>
