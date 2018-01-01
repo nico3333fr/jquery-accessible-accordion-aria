@@ -1,6 +1,6 @@
 /*
  * jQuery Accessible Accordion system, using ARIA
- * @version v2.4.4 
+ * @version v2.4.4
  * Website: https://a11y.nicolas-hoffmann.net/accordion/
  * License MIT: https://github.com/nico3333fr/jquery-accessible-accordion-aria/blob/master/LICENSE
  */
@@ -11,7 +11,7 @@
     } else if (typeof exports !== 'undefined') {
         module.exports = factory(require('jquery'));
     } else {
-        factory(jQuery);
+        factory(window.jQuery);
     }
 }(function($) {
     'use strict';
@@ -52,14 +52,10 @@
         }).addClass(this.options.prefixClass);
 
         // id generated if not present
-        this.$wrapper.each($.proxy(function(index, el) {
-            var $wrapper = $(el);
+        if (!this.$wrapper.attr('id')) {
             var index_lisible = Math.random().toString(32).slice(2, 12);
-
-            if (!$wrapper.attr('id')) {
-                $wrapper.attr('id', this.options.accordionPrefixId + '-' + index_lisible);
-            }
-        }, this));
+            this.attr('id', this.options.accordionPrefixId + '-' + index_lisible);
+        }
 
         this.$panels.each($.proxy(function(index, el) {
             var $panel = $(el);
@@ -169,8 +165,7 @@
         var $button = $target.is('button') ? $target : $target.closest('button');
         var $firstButton = this.$buttons.first();
         var $lastButton = this.$buttons.last();
-        var $prevButton = $button.prevAll(this.options.buttonsSelector).first();
-        var $nextButton = $button.nextAll(this.options.buttonsSelector).first();
+        var index = this.$buttons.index($button);
 
         $target = null;
 
@@ -205,12 +200,12 @@
             // strike up or left in the tab => previous tab
             else if ($.inArray(e.keyCode, k.prev) >= 0) {
                 // if we are on first one, activate last
-                $target = $button.is($firstButton) ? $lastButton : $prevButton;
+                $target = $button.is($firstButton) ? $lastButton : this.$buttons.eq(index - 1);
             }
             // strike down or right in the tab => next tab
             else if ($.inArray(e.keyCode, k.next) >= 0) {
                 // if we are on last one, activate first
-                $target = $button.is($lastButton) ? $firstButton : $nextButton;
+                $target = $button.is($lastButton) ? $firstButton : this.$buttons.eq(index + 1);
             }
 
             if ($target !== null) {
@@ -224,10 +219,9 @@
     Accordion.prototype.keydownPanelEventHandler = function(e) {
         var $panel = $(e.target).closest(this.options.panelsSelector);
         var $button = $('#' + $panel.attr('aria-labelledby'));
-        var $firstButton = this.$wrapper.find(this.options.buttonsSelector).first();
-        var $lastButton = this.$wrapper.find(this.options.buttonsSelector).last();
-        var $prevButton = $button.prevAll(this.options.buttonsSelector).first();
-        var $nextButton = $button.nextAll(this.options.buttonsSelector).first();
+        var $firstButton = this.$buttons.first();
+        var $lastButton = this.$buttons.last();
+        var index = this.$buttons.index($button);
         var $target = null;
 
         // strike up + ctrl => go to header
@@ -236,11 +230,11 @@
         }
         // strike pageup + ctrl => go to prev header
         else if (e.keyCode === 33 && e.ctrlKey) {
-            $target = $button.is($firstButton) ? $lastButton : $prevButton;
+            $target = $button.is($firstButton) ? $lastButton : this.$buttons.eq(index - 1);
         }
         // strike pagedown + ctrl => go to next header
         else if (e.keyCode === 34 && e.ctrlKey) {
-            $target = $button.is($lastButton) ? $firstButton : $nextButton;
+            $target = $button.is($lastButton) ? $firstButton : this.$buttons.eq(index + 1);
         }
 
         if ($target !== null) {
