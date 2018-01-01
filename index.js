@@ -1,6 +1,6 @@
 /*
  * jQuery Accessible Accordion system, using ARIA
- * @version v2.5.0
+ * @version v2.5.1
  * Website: https://a11y.nicolas-hoffmann.net/accordion/
  * License MIT: https://github.com/nico3333fr/jquery-accessible-accordion-aria/blob/master/LICENSE
  */
