@@ -54,7 +54,7 @@
         // id generated if not present
         if (!this.$wrapper.attr('id')) {
             var index_lisible = Math.random().toString(32).slice(2, 12);
-            this.attr('id', this.options.accordionPrefixId + '-' + index_lisible);
+            this.$wrapper.attr('id', this.options.accordionPrefixId + '-' + index_lisible);
         }
 
         this.$panels.each($.proxy(function(index, el) {
