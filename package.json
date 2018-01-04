@@ -2,7 +2,7 @@
   "title": "jQuery Accessible Accordion system, using ARIA",
   "name": "jquery-accessible-accordion-aria",
   "description": "This jQuery plugin will provide you an accessible Accordion System, using ARIA",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "main": "index.js",
   "homepage": "https://a11y.nicolas-hoffmann.net/accordion/",
   "bugs": {
@@ -21,12 +21,7 @@
     "a11y",
     "jQuery Plugin"
   ],
-  "licenses": [
-    {
-      "name": "MIT",
-      "url": "https://github.com/nico3333fr/jquery-accessible-accordion-aria/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "author": [
     {
       "name": "Nicolas Hoffmann",

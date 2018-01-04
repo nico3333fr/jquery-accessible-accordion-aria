@@ -1,7 +1,7 @@
 {
   "title": "jQuery Accessible Accordion system, using ARIA",
   "name": "jquery-accessible-accordion-aria",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "main": "index.js",
   "description": "This jQuery plugin will provide you an accessible Accordion System, using ARIA",
   "author": [
