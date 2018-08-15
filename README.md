@@ -9,7 +9,7 @@ It can be included for one, two accordion systems or more in a page.
 <p>This jQuery plugin will transform a simple list of  <code>hx</code> and <code>div</code>’s into a <strong>fantastic-shiny accordion system</strong>, using <abbr title="Accessible Rich Internet Application">ARIA</abbr>.</p>
 
 
-```
+```html
 <div class="js-accordion" data-accordion-prefix-classes="your-prefix-class">
  <div class="js-accordion__panel">
    <h2 class="js-accordion__header">First tab</h2>
@@ -59,25 +59,14 @@ __If you focus in the accordion "buttons"__
 - use Home to put focus on first accordion button (wherever you are in accordion buttons)
 - use End to put focus on last accordion button (wherever you are in accordion buttons)
 
-
-__If you focus in a accordion content__
-- use Ctrl Up/left to Set focus on the carrousel button for the currently displayed carrousel tab
-- use Ctrl PageUp to Set focus on the previous carrousel button for the currently displayed carrousel tab
-- use Ctrl PageDown to Set focus on the next carrousel button for the currently displayed carrousel tab
-
 And strike space or return on an accordion button to open/close it
 
-__New: if you focus on next/prev buttons__
-- use Ctrl Up to set focus on the accordion button for the currently displayed accordion content
-- use Ctrl PageUp to set focus on the previous accordion button for the currently displayed accordion content
-- use Ctrl PageDown to set focus on the next accordion button for the currently displayed accordion content
 
-
-__Warning__: Ctrl+PageUp/PageDown combination could activate for some browsers a switch of browser tabs. Nothing to do for this, as far as I know (if you have a solution, let me know).
 
 ## All options of the plugin
-   
-```var defaultConfig = {
+
+```js
+var defaultConfig = {
  headersSelector: '.js-accordion__header',
  panelsSelector: '.js-accordion__panel',
  buttonsSelector: 'button.js-accordion__header',
@@ -98,8 +87,8 @@ __Warning__: Ctrl+PageUp/PageDown combination could activate for some browsers a
 ```
 
 When calling the plugin, you may set up options as you want. For example:
-  
-```
+
+```js
 $(function () {
    $('.js-accordion').accordion({ buttonsGeneratedContent: 'html' });
 });
@@ -113,7 +102,7 @@ __Content opened by default__
 
 If you want to have an accordion content opened by default, just add the attribute ```data-accordion-opened="true"``` on a ```js-accordion__panel```, example:
 
-```
+```html
 <div class="js-accordion__panel" data-accordion-opened="true">
 ```
 
@@ -132,7 +121,7 @@ In fact, it is possible using some CSS transitions. You have to keep in mind sev
 
 So here is the CSS code (unprefixed):
 
-```
+```css
 .animated-accordion__panel {
  display: block;
  overflow: hidden;
@@ -167,7 +156,7 @@ __Other options__
 
 The ARIA Design Pattern for accordions (http://www.w3.org/TR/wai-aria-practices/#accordion) allows to have several accordion panels opened at the same time (which is shown by the attribute ```aria-multiselectable="true"```). However, you might need to avoid this for design purposes or client request. To do this, you may set this attribute on the accordion container: ```data-accordion-multiselectable="none"```. Example:
 
-```
+```html
 <div class="js-accordion" data-accordion-multiselectable="none" …>
 ```
 

@@ -62,7 +62,7 @@
             var $header = $(this.options.headersSelector, $panel);
             var $button = this.options.buttonsGeneratedContent === 'html' ? this.options.button.clone().html($header.html()) : this.options.button.clone().text($header.text());
 
-            $header.attr('tabindex', '0').addClass(this.options.prefixClass + this.options.headerSuffixClass);
+            $header.addClass(this.options.prefixClass + this.options.headerSuffixClass);
             $panel.before($button);
 
             var panelId = $panel.attr('id') || this.$wrapper.attr('id') + '-' + index;
@@ -73,7 +73,6 @@
                 'aria-expanded': 'false',
                 'role': 'tab',
                 'id': buttonId,
-                'tabindex': '-1',
                 'aria-selected': 'false'
             }).addClass(this.options.prefixClass + this.options.buttonSuffixClass);
 
@@ -96,10 +95,7 @@
                 });
             }
 
-            // init first one focusable
-            if (index === 0) {
-                $button.removeAttr('tabindex');
-            }
+
         }, this));
 
         this.$buttons = $(this.options.buttonsSelector, this.$wrapper);
@@ -120,13 +116,11 @@
         var $button = $target.is('button') ? $target : $target.closest('button');
 
         $(this.options.buttonsSelector, this.$wrapper).attr({
-            'tabindex': '-1',
             'aria-selected': 'false'
         });
 
         $button.attr({
-            'aria-selected': 'true',
-            'tabindex': null
+            'aria-selected': 'true'
         });
     };
 
@@ -185,7 +179,6 @@
 
         if ($.inArray(e.keyCode, allKeyCode) >= 0 && !e.ctrlKey) {
             this.$buttons.attr({
-                'tabindex': '-1',
                 'aria-selected': 'false'
             });
 
@@ -216,41 +209,13 @@
         }
     };
 
-    Accordion.prototype.keydownPanelEventHandler = function(e) {
-        var $panel = $(e.target).closest(this.options.panelsSelector);
-        var $button = $('#' + $panel.attr('aria-labelledby'));
-        var $firstButton = this.$buttons.first();
-        var $lastButton = this.$buttons.last();
-        var index = this.$buttons.index($button);
-        var $target = null;
-
-        // strike up + ctrl => go to header
-        if (e.keyCode === 38 && e.ctrlKey) {
-            $target = $button;
-        }
-        // strike pageup + ctrl => go to prev header
-        else if (e.keyCode === 33 && e.ctrlKey) {
-            $target = $button.is($firstButton) ? $lastButton : this.$buttons.eq(index - 1);
-        }
-        // strike pagedown + ctrl => go to next header
-        else if (e.keyCode === 34 && e.ctrlKey) {
-            $target = $button.is($lastButton) ? $firstButton : this.$buttons.eq(index + 1);
-        }
-
-        if ($target !== null) {
-            this.goToHeader($target);
-            e.preventDefault();
-        }
-    };
-
     Accordion.prototype.goToHeader = function($target) {
         if ($target.length !== 1) {
             return;
         }
 
         $target.attr({
-            'aria-selected': 'true',
-            'tabindex': null
+            'aria-selected': 'true'
         });
 
         setTimeout(function() {
