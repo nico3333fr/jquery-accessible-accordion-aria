@@ -1,6 +1,6 @@
 /*
  * jQuery Accessible Accordion system, using ARIA
- * @version v2.5.2
+ * @version v2.6.1
  * Website: https://a11y.nicolas-hoffmann.net/accordion/
  * License MIT: https://github.com/nico3333fr/jquery-accessible-accordion-aria/blob/master/LICENSE
  */
@@ -107,8 +107,6 @@
         this.$wrapper.on('click', this.options.buttonsSelector, $.proxy(this.clickButtonEventHandler, this));
 
         this.$wrapper.on('keydown', this.options.buttonsSelector, $.proxy(this.keydownButtonEventHandler, this));
-
-        this.$wrapper.on('keydown', this.options.panelsSelector, $.proxy(this.keydownPanelEventHandler, this));
     };
 
     Accordion.prototype.focusButtonEventHandler = function(e) {
